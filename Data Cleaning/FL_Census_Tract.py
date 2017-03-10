@@ -233,9 +233,9 @@ census = census.rename(index=str, columns=map_census2)
 # In[25]:
 
 # Create variables to ease the feature creation process
-totPop = census.TOT_POP.sum()
+totPop = census['TOT_POP'].sum()
 totPop18 = census['TOT_18+'].sum()
-totHous = census.TOT_HOUSE_UNITS.sum()
+totHous = census['TOT_HOUSE_UNITS'].sum()
 Other = census['TOT_IA'] + census['TOT_NA'] + census['TOT_OTHER'] + census['TOT_TOM']
 Other18 = census['TOT_IA_18+'] + census['TOT_NA_18+'] + \
     census['TOT_OTHER_18+'] + census['TOT_TOM_18+']
@@ -310,4 +310,4 @@ census.drop(census[['Median income (dollars); Estimate; One race-- - American In
 
 census["census_tract"] = census['CENSUS_TRACT']
 # Write the census dataframe to CSV file
-# census.to_csv('Data/FL_census.csv')
+census.to_csv('Data/FL_census.csv')
